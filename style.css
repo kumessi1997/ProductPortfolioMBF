@@ -155,8 +155,8 @@ body {
 
 .chat-window {
     position: absolute; /* Change to absolute positioning */
-    bottom: 0px; /* Adjust this to position relative to the chat-button */
-    right: 70px; /* Adjust this to position relative to the chat-button */
+    bottom: 80px; /* Position above the button */
+    left: 0; /* Align left with the button */
     width: 525px;
     height: 750px;
     background-color: white;
@@ -512,10 +512,10 @@ body {
 .bottom-buttons-wrapper {
     position: fixed;
     bottom: 20px;
-    right: 20px;
+    left: 20px;
     display: flex;
-    flex-direction: column; /* Stack buttons vertically */
-    align-items: flex-end; /* Align to the right */
+    flex-direction: row; /* Stack buttons horizontally */
+    align-items: flex-end; /* Align to the bottom */
     gap: 10px; /* Space between buttons */
     z-index: 1000;
 }
@@ -732,7 +732,7 @@ body {
 @media (max-width: 768px) {
     .bottom-buttons-wrapper {
         bottom: 10px;
-        right: 10px;
+        left: 10px;
         gap: 8px; /* Slightly reduce gap for smaller screens */
     }
 
@@ -752,8 +752,8 @@ body {
     .chat-window {
         width: 300px; /* Smaller chat window */
         height: 450px;
-        right: 55px; /* Adjust position relative to smaller button */
-        bottom: 0px;
+        left: 0; /* Adjust position relative to smaller button */
+        bottom: 60px;
     }
 
     .chat-header {
