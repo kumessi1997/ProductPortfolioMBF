@@ -1,7 +1,16 @@
 
-// Load Rive Animation
+// Initialize Loading Rive Animation
+const loadingRive = new rive.Rive({
+    src: 'loading_motion.riv',
+    canvas: document.getElementById('loadingCanvas'),
+    autoplay: true,
+    artboard: 'render',
+    stateMachines: 'State Machine 1',
+});
+
+// Load Main Rive Animation
 const r = new rive.Rive({
-    src: "product_platform2.riv",
+    src: window.innerWidth <= 768 ? "product_mobile.riv" : "product_platform2.riv",
     canvas: document.getElementById("riveCanvas"),
     autoplay: true,
     autoBind: true,
@@ -10,6 +19,15 @@ const r = new rive.Rive({
     artboard: "Main",
     onLoad: () => {
         r.resizeDrawingSurfaceToCanvas();
+        // Hide loading overlay when main animation is ready
+        const overlay = document.getElementById('loading-overlay');
+        if (overlay) {
+            overlay.classList.add('hidden');
+            setTimeout(() => {
+                overlay.style.display = 'none';
+                loadingRive.stop(); // Stop the loader to save resources
+            }, 500);
+        }
     },
 });
 
